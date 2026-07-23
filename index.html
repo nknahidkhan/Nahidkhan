@@ -1,42 +1,543 @@
-<!DOCTYPE html> 
-<html lang="en"> 
-<head> 
-    <meta charset="UTF-8"> 
-    <meta name="viewport" content="width=device-width, initial-scale=1.0"> 
-    <title>Nahid khan Portfolio</title> 
-</head> 
-<body> 
- 
-    <h1>Nahid khan</h1> 
-    <p><strong>Student</strong></p> 
- 
-    <p>I build clean, simple projects and love solving problems. Welcome 
-to my page!</p> 
- 
-    <h2>Skills</h2> 
-    <ul> 
-        <li>Skill 1</li> 
-        <li>Skill 2</li> 
-        <li>Skill 3</li> 
-    </ul> 
- 
-    <h2>Projects</h2> 
-    <ul> 
-        <li> 
-            <a href="https://github.com/nknahidkhan/TicTacToe" target="_blank">TicTacToe</a> 
-            - It is a simple tictactoe  game build with c. 
-        </li> 
-        <li> 
-            <a href="https://github.com/nknahidkhan/campusfind" target="_blank">Campus Find</a> 
-            - A university lost and find site. 
-        </li> 
-    </ul> 
- 
-    <h2>Contact</h2> 
-    <p>Email: <a href="mailto:mdnknahidkhan@gmail.com">mdnknahidkhan@gmail.com</a></p> 
-    <p>GitHub: <a href="https://github.com/nknahidkhan" 
-target="_blank">github.com/nknahidkhan</a></p> 
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Nahid khan</title>
+  <!-- Font Awesome for icons (free) -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    }
 
- 
-</body> 
-</html>   
+    body {
+      background: #f8fafc;
+      color: #0b1a2e;
+      line-height: 1.6;
+      padding: 2rem 1rem;
+    }
+
+    .container {
+      max-width: 1100px;
+      margin: 0 auto;
+      background: #ffffff;
+      border-radius: 2rem;
+      box-shadow: 0 20px 40px -12px rgba(0, 0, 0, 0.1);
+      padding: 2.5rem 2rem;
+      transition: box-shadow 0.2s ease;
+    }
+
+    /* ===== HEADER ===== */
+    .header {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      align-items: center;
+      border-bottom: 2px solid #e9edf2;
+      padding-bottom: 2rem;
+      margin-bottom: 2rem;
+    }
+
+    .profile {
+      display: flex;
+      align-items: center;
+      gap: 1.2rem;
+    }
+
+    .avatar {
+      width: 80px;
+      height: 80px;
+      background: linear-gradient(145deg, #1e3a6b, #2b4f8c);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: white;
+      font-size: 2.4rem;
+      font-weight: 600;
+      box-shadow: 0 8px 16px -6px rgba(27, 55, 96, 0.25);
+    }
+
+    .name-title h1 {
+      font-size: 2.2rem;
+      font-weight: 700;
+      letter-spacing: -0.02em;
+      color: #0b1a2e;
+    }
+
+    .name-title .badge {
+      background: #e2e9f3;
+      color: #1e3a6b;
+      padding: 0.2rem 1rem;
+      border-radius: 30px;
+      font-size: 0.85rem;
+      font-weight: 600;
+      display: inline-block;
+      margin-top: 0.2rem;
+    }
+
+    .contact-links {
+      display: flex;
+      gap: 1.5rem;
+      flex-wrap: wrap;
+      align-items: center;
+    }
+
+    .contact-links a {
+      color: #1e3a6b;
+      text-decoration: none;
+      font-weight: 500;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      font-size: 0.95rem;
+      background: #f1f4f9;
+      padding: 0.4rem 1rem;
+      border-radius: 40px;
+      transition: background 0.2s, transform 0.1s;
+    }
+
+    .contact-links a i {
+      font-size: 1rem;
+      color: #2b4f8c;
+    }
+
+    .contact-links a:hover {
+      background: #dce4ef;
+      transform: translateY(-2px);
+    }
+
+    /* ===== GRID LAYOUT ===== */
+    .grid-2col {
+      display: grid;
+      grid-template-columns: 1fr 1.8fr;
+      gap: 2.5rem;
+      margin-top: 0.5rem;
+    }
+
+    /* left sidebar */
+    .sidebar {
+      display: flex;
+      flex-direction: column;
+      gap: 2rem;
+    }
+
+    .sidebar-section {
+      background: #f9fbfd;
+      border-radius: 1.5rem;
+      padding: 1.5rem 1.4rem;
+      border: 1px solid #eef2f7;
+    }
+
+    .sidebar-section h3 {
+      font-size: 1rem;
+      text-transform: uppercase;
+      letter-spacing: 0.04em;
+      color: #48658a;
+      margin-bottom: 1.2rem;
+      border-bottom: 1px dashed #d7e0ea;
+      padding-bottom: 0.6rem;
+    }
+
+    .skill-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.6rem;
+    }
+
+    .skill-tag {
+      background: white;
+      border: 1px solid #d7e0ea;
+      padding: 0.25rem 1rem;
+      border-radius: 40px;
+      font-size: 0.85rem;
+      font-weight: 500;
+      color: #1f3d61;
+      box-shadow: 0 1px 2px rgba(0,0,0,0.02);
+    }
+
+    .edu-item {
+      margin-bottom: 1rem;
+    }
+    .edu-item strong {
+      display: block;
+      font-weight: 700;
+      color: #0f263f;
+    }
+    .edu-item .meta {
+      font-size: 0.9rem;
+      color: #4b6a8e;
+    }
+
+    .interest-list {
+      list-style: none;
+    }
+    .interest-list li {
+      margin-bottom: 0.5rem;
+      display: flex;
+      align-items: center;
+      gap: 0.6rem;
+      font-size: 0.95rem;
+    }
+    .interest-list i {
+      color: #2b4f8c;
+      width: 1.4rem;
+      font-size: 1rem;
+    }
+
+    /* ===== MAIN CONTENT (projects, experience) ===== */
+    .main-content {
+      display: flex;
+      flex-direction: column;
+      gap: 2.2rem;
+    }
+
+    .section-title {
+      font-size: 1.1rem;
+      font-weight: 700;
+      letter-spacing: -0.01em;
+      color: #15304f;
+      display: flex;
+      align-items: center;
+      gap: 0.6rem;
+      margin-bottom: 1.2rem;
+      border-bottom: 2px solid #e4ebf3;
+      padding-bottom: 0.5rem;
+    }
+    .section-title i {
+      color: #2b4f8c;
+      font-size: 1.2rem;
+    }
+
+    .project-card {
+      background: #f9fbfd;
+      border-radius: 1.2rem;
+      padding: 1.2rem 1.5rem;
+      margin-bottom: 1.2rem;
+      border-left: 4px solid #2b4f8c;
+      transition: background 0.15s;
+    }
+    .project-card:hover {
+      background: #f2f6fc;
+    }
+    .project-card h4 {
+      font-size: 1.2rem;
+      font-weight: 700;
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 0.8rem;
+    }
+    .project-card h4 .project-links {
+      font-size: 0.8rem;
+      font-weight: 400;
+      display: inline-flex;
+      gap: 0.6rem;
+    }
+    .project-card h4 .project-links a {
+      color: #1e3a6b;
+      text-decoration: none;
+      background: #e4ebf3;
+      padding: 0.1rem 0.8rem;
+      border-radius: 30px;
+      font-size: 0.75rem;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.3rem;
+    }
+    .project-card p {
+      margin-top: 0.5rem;
+      font-size: 0.95rem;
+      color: #1e334b;
+    }
+    .tech-stack {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.4rem;
+      margin-top: 0.6rem;
+    }
+    .tech-stack span {
+      background: white;
+      padding: 0.1rem 0.8rem;
+      border-radius: 30px;
+      font-size: 0.7rem;
+      font-weight: 500;
+      color: #1d3d61;
+      border: 1px solid #d0dceb;
+    }
+
+    .experience-item {
+      background: #f9fbfd;
+      border-radius: 1.2rem;
+      padding: 1rem 1.5rem;
+      margin-bottom: 1rem;
+      border: 1px solid #eef2f7;
+    }
+    .experience-item h4 {
+      font-weight: 700;
+      font-size: 1rem;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+    }
+    .experience-item .company {
+      font-weight: 500;
+      color: #1e3a6b;
+    }
+    .experience-item .date {
+      font-weight: 400;
+      color: #5b7a9e;
+      font-size: 0.8rem;
+    }
+    .experience-item ul {
+      margin-top: 0.5rem;
+      padding-left: 1.2rem;
+      color: #1e334b;
+      font-size: 0.9rem;
+    }
+    .experience-item ul li {
+      margin-bottom: 0.2rem;
+    }
+
+    /* ===== responsiveness ===== */
+    @media (max-width: 800px) {
+      .grid-2col {
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
+      }
+      .header {
+        flex-direction: column;
+        align-items: start;
+        gap: 1.2rem;
+      }
+      .profile {
+        width: 100%;
+      }
+      .contact-links {
+        width: 100%;
+        justify-content: flex-start;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .container {
+        padding: 1.5rem 1rem;
+      }
+      .avatar {
+        width: 60px;
+        height: 60px;
+        font-size: 1.8rem;
+      }
+      .name-title h1 {
+        font-size: 1.8rem;
+      }
+      .contact-links a {
+        font-size: 0.8rem;
+        padding: 0.2rem 0.8rem;
+      }
+      .project-card {
+        padding: 1rem;
+      }
+    }
+
+    /* footnote / extra */
+    .footer-note {
+      margin-top: 2.5rem;
+      border-top: 1px solid #e2e9f2;
+      padding-top: 1.5rem;
+      text-align: center;
+      font-size: 0.9rem;
+      color: #4f6f93;
+      display: flex;
+      justify-content: center;
+      gap: 1.5rem;
+      flex-wrap: wrap;
+    }
+    .footer-note a {
+      color: #1e3a6b;
+      text-decoration: none;
+      font-weight: 500;
+    }
+    .footer-note a i {
+      margin-right: 0.3rem;
+    }
+  </style>
+</head>
+<body>
+<div class="container">
+
+  <!-- HEADER -->
+  <header class="header">
+    <div class="profile">
+      <div class="avatar">NK</div>
+      <div class="name-title">
+        <h1>Nahid Khan</h1>
+        <span class="badge"><i class="fas fa-graduation-cap" style="margin-right: 6px;"></i>Computer Science and Engineering · 2nd year</span>
+      </div>
+    </div>
+    <div class="contact-links">
+      <a href="https://github.com/nknahidkhan"><i class="fab fa-github"></i> github</a>
+      <a href="https://www.linkedin.com/in/nknahidkhan/"><i class="fab fa-linkedin-in"></i> linkedin</a>
+      <a href="mailto:nahid12511060.cse@ugv.edu.bd"><i class="fas fa-envelope"></i> email</a>
+    </div>
+  </header>
+
+  <!-- GRID: SIDEBAR + MAIN -->
+  <div class="grid-2col">
+
+    <!-- LEFT SIDEBAR -->
+    <aside class="sidebar">
+
+      <!-- Skills -->
+      <section class="sidebar-section">
+        <h3><i class="fas fa-code" style="margin-right: 8px;"></i> Tech skills</h3>
+        <div class="skill-tags">
+          <span class="skill-tag">JavaScript / TS</span>
+          <span class="skill-tag">React</span>
+          <span class="skill-tag">Node.js</span>
+          <span class="skill-tag">Python</span>
+          <span class="skill-tag">Java</span>
+          <span class="skill-tag">SQL</span>
+          <span class="skill-tag">MongoDB</span>
+          <span class="skill-tag">Git</span>
+          <span class="skill-tag">Docker</span>
+          <span class="skill-tag">REST APIs</span>
+        </div>
+      </section>
+
+      <!-- Education -->
+      <section class="sidebar-section">
+        <h3><i class="fas fa-university" style="margin-right: 8px;"></i> Education</h3>
+        <div class="edu-item">
+          <strong>B.S. Software Engineering</strong>
+          <span class="meta">University of Global Village · 2025 – 2028</span>
+          <div style="margin-top: 6px; font-size:0.9rem; color: #2b4f8c;">GPA: 3.7· Dean's List</div>
+        </div>
+        <div class="edu-item" style="margin-top: 0.8rem;">
+          <strong>Relevant coursework</strong>
+          <span class="meta" style="display: block; margin-top: 3px;">Data Structures, Algorithms, Database Systems, Web Dev, Operating Systems</span>
+        </div>
+      </section>
+
+      <!-- Interests / extracurricular -->
+      <section class="sidebar-section">
+        <h3><i class="fas fa-puzzle-piece" style="margin-right: 8px;"></i> interests</h3>
+        <ul class="interest-list">
+          <li><i class="fas fa-robot"></i> AI / ML tinkering</li>
+          <li><i class="fas fa-cloud"></i> Cloud architecture</li>
+          <li><i class="fas fa-gamepad"></i> Game dev (Unity)</li>
+          <li><i class="fas fa-book-open"></i> Tech blogging</li>
+        </ul>
+      </section>
+
+    </aside>
+
+    <!-- MAIN CONTENT (projects & experience) -->
+    <main class="main-content">
+
+      <!-- PROJECTS -->
+      <section>
+        <div class="section-title">
+          <i class="fas fa-folder-open"></i> Featured projects
+        </div>
+
+        <div class="project-card">
+          <h4>
+            <span>TaskFlow · full-stack task manager</span>
+            <span class="project-links">
+              <a href="#"><i class="fab fa-github"></i> code</a>
+              <a href="#"><i class="fas fa-external-link-alt"></i> demo</a>
+            </span>
+          </h4>
+          <p>Collaborative task board with real-time updates, drag & drop, and team workspaces. Built with React, Node.js, WebSockets, and PostgreSQL.</p>
+          <div class="tech-stack">
+            <span>React</span><span>Node</span><span>Express</span><span>WebSocket</span><span>PostgreSQL</span>
+          </div>
+        </div>
+
+        <div class="project-card">
+          <h4>
+            <span>EcoTrack · carbon footprint analyzer</span>
+            <span class="project-links">
+              <a href="#"><i class="fab fa-github"></i> code</a>
+            </span>
+          </h4>
+          <p>Data visualization tool that estimates carbon footprint based on user activity. Uses Python, Pandas, and Plotly dash. Won “Best Sustainability Hack” at DevHack 2025.</p>
+          <div class="tech-stack">
+            <span>Python</span><span>Pandas</span><span>Plotly</span><span>Flask</span>
+          </div>
+        </div>
+
+        <div class="project-card">
+          <h4>
+            <span>Portfolio · this very page</span>
+            <span class="project-links">
+              <a href="#"><i class="fab fa-github"></i> source</a>
+            </span>
+          </h4>
+          <p>Minimalist, responsive portfolio built with pure HTML & CSS, with a touch of FontAwesome. Designed to be lightweight and mobile-friendly.</p>
+          <div class="tech-stack">
+            <span>HTML5</span><span>CSS3</span><span>Flexbox</span><span>Grid</span>
+          </div>
+        </div>
+      </section>
+
+      <!-- EXPERIENCE -->
+      <section>
+        <div class="section-title">
+          <i class="fas fa-briefcase"></i> experience
+        </div>
+
+        <div class="experience-item">
+          <h4>
+            <span>Software Engineering Intern · <span class="company">CloudSphere Inc.</span></span>
+            <span class="date">Summer 2025</span>
+          </h4>
+          <ul>
+            <li>Developed internal dashboard for monitoring microservices using React and D3.js.</li>
+            <li>Wrote integration tests with Jest and improved test coverage by 15%.</li>
+            <li>Collaborated with backend team to design RESTful endpoints for real-time metrics.</li>
+          </ul>
+        </div>
+
+        <div class="experience-item">
+          <h4>
+            <span>Teaching Assistant · <span class="company">Data Structures (CS 201)</span></span>
+            <span class="date">Fall 2024 – Spring 2025</span>
+          </h4>
+          <ul>
+            <li>Held office hours and led lab sessions for 40+ students, focusing on algorithms, recursion, and complexity analysis.</li>
+            <li>Graded assignments and provided detailed feedback in Java and C++.</li>
+          </ul>
+        </div>
+
+        <div class="experience-item">
+          <h4>
+            <span>Open Source Contributor · <span class="company">Project Aurora</span></span>
+            <span class="date">2024 – present</span>
+          </h4>
+          <ul>
+            <li>Maintained and refactored core routing module in a Node.js open-source library.</li>
+            <li>Resolved 12+ issues and reviewed pull requests from the community.</li>
+          </ul>
+        </div>
+      </section>
+    </main>
+  </div>
+
+  <!-- FOOTER / additional links -->
+  <div class="footer-note">
+    <span><i class="fas fa-map-pin"></i> Barishal</span>
+    <a href="#"><i class="fas fa-file-pdf"></i> resume (PDF)</a>
+    <a href="#"><i class="fas fa-envelope"></i> nahid12511060.cse@ugv.edu.bd</a>
+    <span><i class="fas fa-code"></i> always learning</span>
+  </div>
+
+</div>
+<!-- container end -->
+</body>
+</html>
